@@ -10,8 +10,8 @@ Can't do it like in the .NET Frameowrk days where you add a DLL and then edit th
 	
 	1. Copy ObjectListView folder to target solution folder
 	2. Add  ObjectListView.csproj as an existing project
-	3. Add a **Project Reference** to the ObjectListView project wherever you want to use one of the controls
-	4. The various ObjectListView controls will now appear in the toolbox.  Enjoy.
+	3. Add ObjectListView as a project reference to your main project
+	4. The ObjectListView controls will now appear in the toolbox.  Enjoy.
 
 ## Adding columns
 An exception will occur when adding a column using the properties window because Visual Studio adds the column as a **System.Windows.Forms.ColumnHeader** and not a **BrightIdeasSoftware.OLVColumn**.  The column will be added but the designer will close.  Look in designer file and change the column from:
