@@ -381,7 +381,7 @@ namespace BrightIdeasSoftware
         /// the virtual list seem to flicker as the control scrolls to show the focused
         /// item and then scrolls back to where ObjectListView wants it to be.
         /// </remarks>
-        [Browsable(false),
+        /*[Browsable(false),
          DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         protected new virtual int VirtualListSize {
             get { return base.VirtualListSize; }
@@ -403,7 +403,7 @@ namespace BrightIdeasSoftware
                     NativeMethods.SetItemCount(this, value);
             }
         }
-        static private FieldInfo virtualListSizeFieldInfo;
+        static private FieldInfo virtualListSizeFieldInfo;*/
 
         #endregion
 
@@ -498,7 +498,7 @@ namespace BrightIdeasSoftware
         /// <remark>This method can safely be called from background threads.</remark>
         public override void ClearObjects() {
             if (this.InvokeRequired)
-                this.Invoke(new MethodInvoker(this.ClearObjects));
+                this.Invoke(new System.Windows.Forms.MethodInvoker(this.ClearObjects));
             else {
                 this.CheckStateMap.Clear();
                 this.SetObjects(new ArrayList());
@@ -576,7 +576,7 @@ namespace BrightIdeasSoftware
         /// <remarks>This method does not resort the items.</remarks>
         public override void RefreshObjects(IList modelObjects) {
             if (this.InvokeRequired) {
-                this.Invoke((MethodInvoker)delegate { this.RefreshObjects(modelObjects); });
+                this.Invoke((System.Windows.Forms.MethodInvoker)delegate { this.RefreshObjects(modelObjects); });
                 return;
             }
 
@@ -698,7 +698,7 @@ namespace BrightIdeasSoftware
         /// <param name="preserveState">Should the state of the list be preserved as far as is possible.</param>
         public override void SetObjects(IEnumerable collection, bool preserveState) {
             if (this.InvokeRequired) {
-                this.Invoke((MethodInvoker)delegate { this.SetObjects(collection, preserveState); });
+                this.Invoke((System.Windows.Forms.MethodInvoker)delegate { this.SetObjects(collection, preserveState); });
                 return;
             }
 
