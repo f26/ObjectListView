@@ -381,7 +381,7 @@ namespace BrightIdeasSoftware
         /// the virtual list seem to flicker as the control scrolls to show the focused
         /// item and then scrolls back to where ObjectListView wants it to be.
         /// </remarks>
-        /*[Browsable(false),
+        [Browsable(false),
          DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         protected new virtual int VirtualListSize {
             get { return base.VirtualListSize; }
@@ -391,7 +391,7 @@ namespace BrightIdeasSoftware
 
                 // Get around the 'private' marker on 'virtualListSize' field using reflection
                 if (virtualListSizeFieldInfo == null) {
-                    virtualListSizeFieldInfo = typeof(ListView).GetField("virtualListSize", BindingFlags.NonPublic | BindingFlags.Instance);
+                    virtualListSizeFieldInfo = typeof(ListView).GetField("_virtualListSize", BindingFlags.NonPublic | BindingFlags.Instance);
                     System.Diagnostics.Debug.Assert(virtualListSizeFieldInfo != null);
                 }
 
@@ -403,7 +403,7 @@ namespace BrightIdeasSoftware
                     NativeMethods.SetItemCount(this, value);
             }
         }
-        static private FieldInfo virtualListSizeFieldInfo;*/
+        static private FieldInfo virtualListSizeFieldInfo;
 
         #endregion
 
