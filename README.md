@@ -1,7 +1,7 @@
 # ObjectListView (upgraded to .NET Core 8)
 ObjecListView 2.9.1 (2016-05-05), ported to .NET Core 8.0!  Check out the original here: https://objectlistview.sourceforge.net/.
 
-This was ported by loading up the 2.9.1 source in Visual Studio 2022, upgrading it to .NET Framework 4.8, then right clicking on the ObjectListView project and selecting "Upgrade".  This option uses the [.NET Upgrade Assistant](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgradeassistant) to do the porting for you.  In the case of ObjectListView, I only had to tweak a few minor things like resolving some references and silencing some warnings.  See commit history for details.
+This was ported by loading up the 2.9.1 source in Visual Studio 2022, upgrading it to .NET Framework 4.8, then right clicking on the ObjectListView project and selecting "Upgrade".  This option used the [.NET Upgrade Assistant](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgradeassistant) to do the porting.  In the case of ObjectListView, I only had to tweak a few minor things.
 
 # Differences from ObjectListView 2.9.1
 
@@ -26,4 +26,8 @@ You will also have to update a few more lines that reference the type.  Once thi
 
 ## VirtualListSize
 
-That there is an issue with VirtualObjectListView::VirtualListSize().  It is overriding the base class to eliminate a flicker, but I could not get it working in .NET Core without throwing exceptions whenever an item is added.  I commented out the entire method.  Not sure if this has other ripple effects...
+The private name of this property was changed to have an underscore.  The code was updated to reflect this.
+
+## BinaryFormatter
+
+This class was deprecated.  It has been replaced with JsonSerializer
