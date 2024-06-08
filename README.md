@@ -6,7 +6,7 @@ This was ported by loading up the 2.9.1 source in Visual Studio 2022, upgrading 
 # Differences from ObjectListView 2.9.1
 
 ## Using ObjectListView controls
-Can't do it like in the .NET Frameowrk days where you add a DLL and then edit the toolbox to add specific controls.  It appears that the .NET Core DLL produced by this project cannot be enumerated dynamically by the code that handles the toolbox in Visual Studio so it won't see any controls.  Adding the entire ObjectListView project to whatever solution you have and then adding the ObjectListView project as a reference project to whatever project you want to use ObjectListView in seems to work, as the controls appear in the toolbox.
+Can't do it like in the .NET Framework days where you add a DLL and then edit the toolbox to add specific controls.  It appears that the .NET Core DLL produced by this project cannot be enumerated dynamically by the code that handles the toolbox in Visual Studio so it won't see any controls.  Adding the entire ObjectListView project to whatever solution you have and then adding the ObjectListView project as a reference project to whatever project you want to use ObjectListView in seems to work, as the controls appear in the toolbox.
 	
 	1. Copy ObjectListView folder to target solution folder
 	2. Add  ObjectListView.csproj as an existing project
